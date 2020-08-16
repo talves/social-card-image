@@ -1,0 +1,10 @@
+.SocialCard {
+  background: rgb(2,0,36);
+  background: linear-gradient(160deg, rgba(2,0,36,1) 0%, rgba(11,51,255,1) 90%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}

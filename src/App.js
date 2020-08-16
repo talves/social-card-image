@@ -1,24 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import queryString from "query-string";
+import SocialCard from "./social-card";
+import "./social-card.css";
 
 function App() {
+  const location = typeof window !== undefined ? window.location : {};
+  const data = queryString.parse(location.search);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SocialCard {...data}>
+        <pre>{JSON.stringify(data, null, 2)}</pre>
+      </SocialCard>
     </div>
   );
 }
