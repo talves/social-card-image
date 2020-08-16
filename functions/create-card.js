@@ -18,10 +18,10 @@ const buildUri = ({ queryStringParameters = {} }) => {
 };
 
 const getBoundingSize = (uri) => {
-  const ogBox = document.getElementById(uri.id);
-  if (typeof ogBox === "undefined" || ogBox === null)
+  const cardBox = document.getElementById(uri.id);
+  if (typeof cardBox === "undefined" || cardBox === null)
     return { x: 0, y: 0, width: 1920, height: 1080 };
-  const { x, y, width, height } = ogBox.getBoundingClientRect();
+  const { x, y, width, height } = cardBox.getBoundingClientRect();
   return { x, y, width, height };
 };
 
@@ -58,5 +58,3 @@ exports.handler = async function (event) {
     return { statusCode: error.statusCode || 500, body: error.message };
   }
 };
-
-exports.buildUri = buildUri;
