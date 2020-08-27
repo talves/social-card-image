@@ -25,18 +25,27 @@ const getBoundingSize = (uri) => {
   return { x, y, width, height };
 };
 
-/* In the case you need emojis in your titles */
-
-exports.handler = async function (event) {
+/* In the case you need emojis in your titles (uncomment) */
+async function loadFonts() {
   try {
-    const uri = buildUri(event);
-    console.log("uri", uri.path);
     await playwright.loadFont(
       "https://rawcdn.githack.com/googlefonts/noto-emoji/41708e907f229968abcdc8ec4c59832e109ff1e8/fonts/NotoColorEmoji.ttf"
     );
     await playwright.loadFont(
       "https://rawcdn.githack.com/googlefonts/noto-fonts/31de21ec51b4b54309bd48b9e4b3693fdfe47bcc/alpha/NotoSansHistoric-Regular.ttf"
     );
+
+    console.log("FontsLoaded");
+  } catch (error) {
+    console.log(error);
+  }
+}
+loadFonts();
+
+exports.handler = async function (event) {
+  try {
+    const uri = buildUri(event);
+    console.log("uri", uri.path);
     const browser = await playwright.launchChromium();
     const context = await browser.newContext();
     const page = await context.newPage();
