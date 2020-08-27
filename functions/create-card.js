@@ -32,10 +32,10 @@ exports.handler = async function (event) {
     const uri = buildUri(event);
     console.log("uri", uri.path);
     await playwright.loadFont(
-      "https://raw.githack.com/googlei18n/noto-emoji/master/fonts/NotoColorEmoji.ttf"
+      "https://rawcdn.githack.com/googlefonts/noto-emoji/41708e907f229968abcdc8ec4c59832e109ff1e8/fonts/NotoEmoji-Regular.ttf"
     );
     await playwright.loadFont(
-      "https://fonts.googleapis.com/css2?family=Raleway&display=swap"
+      "https://rawcdn.githack.com/googlefonts/noto-fonts/31de21ec51b4b54309bd48b9e4b3693fdfe47bcc/alpha/NotoSansHistoric-Regular.ttf"
     );
     const browser = await playwright.launchChromium();
     const context = await browser.newContext();
