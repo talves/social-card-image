@@ -34,6 +34,9 @@ exports.handler = async function (event) {
     await playwright.loadFont(
       "https://raw.githack.com/googlei18n/noto-emoji/master/fonts/NotoColorEmoji.ttf"
     );
+    await playwright.loadFont(
+      "https://fonts.googleapis.com/css2?family=Raleway&display=swap"
+    );
     const browser = await playwright.launchChromium();
     const context = await browser.newContext();
     const page = await context.newPage();
