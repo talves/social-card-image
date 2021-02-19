@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <SocialCard {...data}>
-        <pre>{JSON.stringify(data, null, 2)}</pre>
+        <pre style={{ minWidth: "100px" }}>{JSON.stringify(data, null, 2)}</pre>
       </SocialCard>
     </div>
   );

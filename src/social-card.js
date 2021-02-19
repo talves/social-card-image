@@ -2,18 +2,21 @@ import React from "react";
 
 export default ({
   children,
-  title = "Missing Title",
-  width = "1024px",
-  height = "542px",
+  title = "This is the default title!",
+  width = "1200px",
+  height = "630px",
 }) => {
   const styles = {
     width: width,
     height: height,
   };
   return (
-    <div id="social-card" className="SocialCard" style={styles}>
-      <h1>{title}</h1>
-      {children}
+    <div className="SocialCardWrapper" style={styles}>
+      <div id="social-card" className="SocialCard">
+        <h1>{title}</h1>
+        <hr />
+        {children}
+      </div>
     </div>
   );
 };
