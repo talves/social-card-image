@@ -28,7 +28,9 @@ exports.handler = async function (event) {
     await navigationPromise;
     await page.waitForSelector(`${uri.selector}`, { timeout: 1000 });
 
-    const pdfBuffer = await page.pdf();
+    const pdfBuffer = await page.pdf({
+      printBackground: true,
+    });
     await browser.close();
     const base64Pdf = pdfBuffer.toString("base64");
 
