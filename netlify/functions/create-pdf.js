@@ -12,7 +12,7 @@ const buildUri = ({ queryStringParameters = {} }) => {
 
   return {
     selector,
-    path: `${pagepath}?selector=${selector}&title=${title}${dimensions}`,
+    path: `${pagepath}?selector=${selector}${dimensions}`,
   };
 };
 
