@@ -11,8 +11,8 @@ export default ({
     height: height,
   };
   return (
-    <div className="SocialCardWrapper" style={styles}>
-      <div id="social-card" className="SocialCard">
+    <div id="social-card" className="SocialCardWrapper" style={styles}>
+      <div className="SocialCard">
         <h1>{title}</h1>
         <hr />
         {children}

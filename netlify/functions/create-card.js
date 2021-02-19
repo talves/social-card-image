@@ -54,6 +54,7 @@ exports.handler = async function (event) {
       height: 1080,
     });
     await page.goto(uri.path);
+    await page.waitForSelector(`#${uri.id}`, { timeout: 1000 });
 
     await new Promise((resolve) => setTimeout(resolve, "100"));
     const boundingRect = await page.evaluate(getBoundingSize, uri);
