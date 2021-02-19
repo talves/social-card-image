@@ -4,6 +4,8 @@
 
 [Tutorial can be found here][tutorial]
 
+`http://localhost:3000/?title=This%20is%20the%20title!&width=1024px&height=512px`
+
 [![](https://www.netlify.com/img/deploy/button.svg)][deploy]
 
 It will fail until you change the `cardpath` in the `netlify/functions/create-card.js` file or pass the imagepath in your query string parameter to your site's card location.
