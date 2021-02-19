@@ -12,7 +12,7 @@ const buildUri = ({ queryStringParameters = {} }) => {
 
   return {
     id,
-    path: `${cardpath}?id=${id}&title=${title}${dimensions}`,
+    path: `${pagepath}?selector=${selector}&title=${title}${dimensions}`,
   };
 };
 

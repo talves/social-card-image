@@ -54,9 +54,9 @@ exports.handler = async function (event) {
       height: 1080,
     });
     await page.goto(uri.path);
+    // await new Promise((resolve) => setTimeout(resolve, "100"));
     await page.waitForSelector(`#${uri.id}`, { timeout: 1000 });
 
-    await new Promise((resolve) => setTimeout(resolve, "100"));
     const boundingRect = await page.evaluate(getBoundingSize, uri);
     const screenshotBuffer = await page.screenshot({ clip: boundingRect });
     await browser.close();
