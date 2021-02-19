@@ -11,7 +11,7 @@ const buildUri = ({ queryStringParameters = {} }) => {
   const dimensions = width && height ? `&width=${width}&height=${height}` : "";
 
   return {
-    id,
+    selector,
     path: `${pagepath}?selector=${selector}&title=${title}${dimensions}`,
   };
 };
