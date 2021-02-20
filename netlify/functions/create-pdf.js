@@ -4,7 +4,7 @@ const buildUri = ({ queryStringParameters = {} }) => {
   const {
     pagepath = "https://use-hooks.alves.dev/use-previous",
     selector = "body",
-    marginTop = "100px",
+    marginTop = "40px",
     marginBottom = "40px",
   } = queryStringParameters;
 
