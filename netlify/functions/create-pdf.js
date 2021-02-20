@@ -23,11 +23,7 @@ exports.handler = async function (event) {
     const browser = await playwright.launchChromium();
     const context = await browser.newContext();
     const page = await context.newPage();
-    await page.emulateMedia({ media: "screen" });
-    await page.setViewportSize({
-      width: 1920,
-      height: 1080,
-    });
+    await page.emulateMedia({ media: "print" });
     const navigationPromise = page.waitForNavigation();
     await page.goto(uri.path);
     await navigationPromise;
