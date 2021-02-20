@@ -24,6 +24,7 @@ exports.handler = async function (event) {
     const context = await browser.newContext();
     const page = await context.newPage();
     const navigationPromise = page.waitForNavigation();
+    await page.emulateMediaType("screen");
     await page.goto(uri.path);
     await navigationPromise;
     await page.waitForSelector(`${uri.selector}`, { timeout: 1000 });
