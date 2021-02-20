@@ -4,15 +4,15 @@ const buildUri = ({ queryStringParameters = {} }) => {
   const {
     pagepath = "https://use-hooks.alves.dev/use-previous",
     selector = "body",
-    width,
-    height,
+    marginTop = "100px",
+    marginBottom = "40px",
   } = queryStringParameters;
-
-  const dimensions = width && height ? `&width=${width}&height=${height}` : "";
 
   return {
     selector,
-    path: `${pagepath}?selector=${selector}${dimensions}`,
+    marginTop,
+    marginBottom,
+    path: `${pagepath}?selector=${selector}`,
   };
 };
 
@@ -29,6 +29,10 @@ exports.handler = async function (event) {
     await page.waitForSelector(`${uri.selector}`, { timeout: 1000 });
 
     const pdfBuffer = await page.pdf({
+      margin: {
+        top: uri.marginTop,
+        bottom: uri.marginBottom,
+      },
       printBackground: true,
     });
     await browser.close();
